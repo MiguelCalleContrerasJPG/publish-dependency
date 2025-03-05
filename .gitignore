@@ -1,0 +1,24 @@
+# Ignore target directory (compiled code and build artifacts)
+target/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+*.iws
+
+# Ignore Maven specific files
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Ignore dependency caches (may be useful if rebuilding)
+.mvn/
+mvnw
+mvnw.cmd
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.swp

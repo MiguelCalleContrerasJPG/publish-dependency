@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.MiguelCalleContrerasJPG</groupId>
+    <artifactId>publish-dependency</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <!--METADATA -->
+    <name>Dependency demo</name>
+    <description>a dependecy demo to pass for any stage of the process</description>
+    <url>dsfasdf</url>
+    <!---->
+
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.html</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>mccontrerasstefanini</id>
+            <name>Miguel Calle Contreras</name>
+            <email>mccontreras@stefanini.com</email>
+        </developer>
+    </developers>
+
+    <!-- SCM info (required by Maven Central) -->
+    <scm>
+        <!-- The human-readable URL for viewing the code -->
+        <url>https://bitbucket.org/frontendmiguel/publish-dependency</url>
+
+        <!-- Read-only connection (usually the HTTPS or GIT protocol) -->
+        <connection>scm:git:git://bitbucket.org/frontendmiguel/publish-dependency.git</connection>
+
+        <!-- Developer connection (SSH) for committers with write access -->
+        <developerConnection>scm:git:ssh://bitbucket.org/frontendmiguel/publish-dependency.git</developerConnection>
+
+        <!-- Tag can be 'HEAD' or a specific release tag -->
+        <tag>HEAD</tag>
+    </scm>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <plugins>
+            <!-- Sign your artifacts -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Deploy to Sonatype’s staging repository -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.13</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/service/local/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
