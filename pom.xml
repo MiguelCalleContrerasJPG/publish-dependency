@@ -33,13 +33,13 @@
     <!-- SCM info (required by Maven Central) -->
     <scm>
         <!-- The human-readable URL for viewing the code -->
-        <url>https://bitbucket.org/frontendmiguel/publish-dependency</url>
+        <url>https://github.com/MiguelCalleContrerasJPG/publish-dependency</url>
 
         <!-- Read-only connection (usually the HTTPS or GIT protocol) -->
-        <connection>scm:git:git://bitbucket.org/frontendmiguel/publish-dependency.git</connection>
+        <connection>scm:git:git://github.com/MiguelCalleContrerasJPG/publish-dependency.git</connection>
 
         <!-- Developer connection (SSH) for committers with write access -->
-        <developerConnection>scm:git:ssh://bitbucket.org/frontendmiguel/publish-dependency.git</developerConnection>
+        <developerConnection>scm:git:ssh://github.com/MiguelCalleContrerasJPG/publish-dependency.git</developerConnection>
 
         <!-- Tag can be 'HEAD' or a specific release tag -->
         <tag>HEAD</tag>
@@ -83,6 +83,20 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>ossrh</id>
+            <name>OSSRH Release Repository</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <name>OSSRH Snapshot Repository</name>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
 
 
 </project>
